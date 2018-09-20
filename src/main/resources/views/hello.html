@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv='Content-Type' content='Type=text/html; charset=utf-8'>
+<link rel="stylesheet" href="css/main.css">
+<script src="js/jquery.js" type="text/javascript"></script>
+<script src="js/implHello.js" type="text/javascript">
+	
+</script>
+<meta charset="UTF-8" />
+<title>Spring Boot</title>
+</head>
+<body>
+	<p th:text="${saludo}" />
+	<!--  <h1>Luis Ortiz</h1>
+        <p th:text="${resultado}"> -->
+	<h1>Lista de personas de BD</h1>
+	<div id="table-principal">
+	<table id="datosPer">
+		<tr>
+			<th align="center">ID</th>
+			<th align="center">NOMBRE</th>
+			<th align="center">EDAD</th>
+		</tr>
+		<tr th:each="per: ${personas}">
+			<td align="center" th:text="${per.id}" />
+			<td align="center" th:text="${per.nombre}" />
+			<td align="center" th:text="${per.edad}" />
+		</tr>
+	</table>
+	</div>
+	<!--  <form method="post" action="sumar">-->
+	<table>
+		<tr>
+			<td><input id="elim" type="text" placeholder="Eliminar por ID"/></td>
+			<td><button id="elimina">ELIMINAR</button></td>
+			<td><label id="mes" th:text="${message}"></label></td>
+		</tr>
+		<tr>
+			<td><button id="insert">INSERTAR</button></td>
+			<td></td>
+			<td></td>
+		</tr>
+
+		<tr>
+
+			<td><input id="num1" type="text" name="num1" /></td>
+			<td><input id="num2" type="text" name="num2" /></td>
+			<td><label id="rs"></label></td>
+		</tr>
+		<tr>
+			<td><button id="ejecuta">SUMAR</button></td>
+			<td></td>
+			<td></td>
+		</tr>
+	</table>
+	<dialog id="dia">
+	<div class="header">
+		<h3>Inserta Usuario</h3>
+	</div>
+	<div class="body">
+		<table>
+			<tr>
+				<td><label>ID: </label></td>
+				<td><input id="insert-id" type="text" /></td>
+			</tr>
+			<tr>
+				<td><label>NOMBRE: </label></td>
+				<td><input id="insert-name" type="text" /></td>
+			</tr>
+			<tr>
+				<td><label>EDAD: </label></td>
+				<td><input id="insert-age" type="text" /></td>
+			</tr>
+			<tr>
+				<td><button id="inTran">EJECUTAR</button></td>
+				<td><button id="close">CLOSE</button></td>
+			</tr>
+		</table>
+	</div>
+	</dialog>
+	<dialog id="datos-update">
+	<div class="header">
+		<h3>Actualiza Usuario</h3>
+	</div>
+	<div class="body">
+		<table>
+			<tr>
+				<td><label>ID: </label></td>
+				<td><input id="update-id" type="text" /></td>
+			</tr>
+			<tr>
+				<td><label>NOMBRE: </label></td>
+				<td><input id="update-name" type="text" /></td>
+			</tr>
+			<tr>
+				<td><label>EDAD: </label></td>
+				<td><input id="update-age" type="text" /></td>
+			</tr>
+			<tr>
+				<td><button id="update-send">ACTUALIZA</button></td>
+				<td><button id="close-update">CLOSE</button></td>
+			</tr>
+		</table>
+	</div>
+	</dialog>
+</body>
+</html>
